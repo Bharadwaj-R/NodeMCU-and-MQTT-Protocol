@@ -20,11 +20,13 @@
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
 
+#define LEDpin 16
+
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "FTTH-238"
-#define WLAN_PASS       "P@ssw0rd"
+#define WLAN_SSID       "...Your SSID..."
+#define WLAN_PASS       "...Your Password..."
 
 
 
@@ -32,8 +34,8 @@
 
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "Bharadwaj_Routhu"     // from adafruit IO account
-#define AIO_KEY         "aio_uLGM73iSMBf8au5gjKORpa0fIMY7"
+#define AIO_USERNAME    "...Username..."       // From adafruit IO account
+#define AIO_KEY         "...Key..."            // From adafruit IO Account
 
 
 
@@ -52,8 +54,6 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 /****************************** Feeds ***************************************/
 
 // Setup a feed for publishing.
-Adafruit_MQTT_Subscribe status = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/staus");
-
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
 
 // Setup a feed for subscribing to changes.
@@ -62,15 +62,12 @@ Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAM
 
 
 /*************************** Sketch Code ************************************/
-
-// Bug workaround for Arduino 1.6.6, it seems to need a function declaration
-// for some reason (only affects ESP8266, likely an arduino-builder bug).
 void MQTT_connect();
 
 void setup() {
   Serial.begin(115200);
   delay(10);
-  pinMode(16, OUTPUT);
+  pinMode(LEDpin, OUTPUT);
 
   Serial.println(F("Adafruit MQTT demo"));
 
@@ -105,13 +102,21 @@ void loop() {
   // try to spend your time here
 
   Adafruit_MQTT_Subscribe *subscription;
-  while ((subscription = mqtt.readSubscription(5000))) {
-    if (subscription == &onoffbutton) {
+  while ((subscription = mqtt.readSubscription(5000))) 
+  {
+    if (subscription == &onoffbutton) 
+    {
       Serial.print(F("LED Value : "));
       Serial.println((char *)onoffbutton.lastread);
       String val = (char *)onoffbutton.lastread;
-      Serial.println(val.toInt());
-      
+      if(val.toInt() == 1)
+      {
+        digitalWrite(LEDpin, HIGH);
+      }
+      else if(val.toInt() == 0)
+      {
+        digitalWrite(LEDpin, LOW);
+      }      
     }
   }
 
