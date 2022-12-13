@@ -52,3 +52,27 @@ A few additional libraries are required in order to work with MQTT and Adafruit 
 - Assign 0 for OFF and 1 for ON and create the block.
 <br/>  
 
+***Coding the NodeMCU :***  
+Now in the Arduino IDE, go to `File` -> `Examples` -> `Arduino MQTT Library` -> `mqtt_esp8266`. A few changes are required in the code for controlling the LED. Check the Code folder to find the full updated code.  
+<br/>
+
+***Circuit Diagram :***   
+<p align="center">
+  <kbd>
+    <img src="https://user-images.githubusercontent.com/77038120/207405935-549fdbbf-c8fa-4156-ac06-95bcbd6035da.png">
+  </kbd>
+</p>  
+<br/>
+
+**In the code, enter your WiFi details in the `WLAN_SSID`, and `WLAN_PASS` section. `AIO_USERNAME` and `AIO_KEY` can be found from the Adafruit IO Dashboard. Click on the `Key Icon` on the top right corner to view the Username and Key.**  
+<br/>
+
+Compile and upload the code to your NodeMCU. Once done, check the Serial monitor for the connection status. You can now control the LED on NodeMCU using the switch on Adafruit IO Dashboard.  
+<br/>
+
+***Versions :***  
+- `v1.0.0` - Original prototype version by [Bharadwaj Routhu](https://github.com/Bharadwaj-R) using Adafruit IO and NodeMCU
+<br/>  
+
+***And That's It!***  
+You've now learnt the basics of MQTT protocol using NodeMCU and Adafruit IO Dashboard. If you like this project, please star the repository. Visit my [GitHub Profile](https://github.com/Bharadwaj-R) for many such projects on IoT, Cloud Computing, and other Embedded Development boards.
