@@ -56,13 +56,16 @@ A few additional libraries are required in order to work with MQTT and Adafruit 
 Now in the Arduino IDE, go to `File` -> `Examples` -> `Arduino MQTT Library` -> `mqtt_esp8266`. A few changes are required in the code for controlling the LED. Check the Code folder to find the full updated code.  
 <br/>
 
-***Circuit Diagram :***   
+***Connections :***   
 <p align="center">
   <kbd>
-    <img src="https://user-images.githubusercontent.com/77038120/207405935-549fdbbf-c8fa-4156-ac06-95bcbd6035da.png">
+    <img src="https://github.com/Bharadwaj-R/NodeMCU-and-MQTT-Protocol/blob/main/Assets/Connections.png?raw=true">
   </kbd>
 </p>  
-<br/>
+
+(Done using Fritzing)   
+
+<br/>  
 
 **In the code, enter your WiFi details in the `WLAN_SSID`, and `WLAN_PASS` section. `AIO_USERNAME` and `AIO_KEY` can be found from the Adafruit IO Dashboard. Click on the `Key Icon` on the top right corner to view the Username and Key.**  
 <br/>
