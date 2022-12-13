@@ -15,7 +15,7 @@ MQTT is a light weight *Publish and Subscribe* Protocol that provides for a two 
 - MQTT Broker - The server which hosts the MQTT Dashboard
 <br/>  
   
-Popular IoT cloud Dashboard providers like [Adafruit IO](https://io.adafruit.com/), [Blynk](https://blynk.io/), [Arduino Cloud](https://create.arduino.cc/iot), etc. have support for MQTT Protocol in their services. Let's now dive deep into using the MQTT Protocol using NodeMCU Development Board.  
+Popular IoT cloud dashboard providers like [Adafruit IO](https://io.adafruit.com/), [Blynk](https://blynk.io/), [Arduino Cloud](https://create.arduino.cc/iot), etc. have support for MQTT Protocol in their services. Let's now dive deep into using the MQTT Protocol using NodeMCU Development Board.  
 <br/>  
 
 ## Demo code for MQTT Protocol using Adafruit IO
@@ -40,6 +40,7 @@ A few additional libraries are required in order to work with MQTT and Adafruit 
 - `Adafruit IO Arduino` by Adafruit  
 - `Adafruit MQTT Library` by Adafruit  
 - `ArduinoHttpClient` by Arduino  
+<br/>  
 
 ***Setting up the Adafruit IO Dashboard :***  
 - Once you register in the Adafruit IO website, head over to the `Feeds` subsection.  
